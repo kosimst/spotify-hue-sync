@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "module": "CommonJS",
+    "outDir": "build",
+    "baseUrl": "src"
+  }
+}
