@@ -52,6 +52,8 @@ app.get('/faders', (req, res) => {
 })
 
 app.get('/faders/:fader', async (req, res) => {
+  if (!activeSync) return res.status(400).send('Not running')
+
   const { fader } = req.params
 
   try {
