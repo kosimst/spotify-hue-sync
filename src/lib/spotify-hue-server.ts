@@ -1,6 +1,7 @@
 import { Worker } from 'worker_threads'
 import faders from '../constants/faders'
 import { SpotifyHueSyncArgs } from './spotify-hue'
+import { join } from 'path'
 
 export type HueSyncWorker = {
   stop: () => Promise<number>
@@ -11,7 +12,7 @@ export type HueSyncWorker = {
 
 const startWorker = async (...args: SpotifyHueSyncArgs) =>
   new Promise<HueSyncWorker>((resolve, reject) => {
-    const worker = new Worker('./spotify-hue-worker.js', {
+    const worker = new Worker(join(__dirname, 'spotify-hue-worker.js'), {
       workerData: args,
     })
 
